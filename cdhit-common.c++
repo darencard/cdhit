@@ -2618,7 +2618,7 @@ void Options::ComputeTableLimits( int min_len, int max_len, int typical_len, siz
 		max_entries = (options.max_memory - mem_need) / sizeof(IndexCount);
 		max_sequences = (size_t)(max_entries * frac);
 		if( max_sequences < MAX_TABLE_SEQ / 100 ) max_sequences = MAX_TABLE_SEQ / 100;
-		if( max_sequences > MAX_TABLE_SEQ ) max_sequences = MAX_TABLE_SEQ;
+		if( max_sequences > MAX_TABLE_SEQ || max_sequences == 0 ) max_sequences = MAX_TABLE_SEQ;
 	}
 	printf( "Table limit with the given memory limit:\n" );
 	printf( "Max number of representatives: %zu\n", max_sequences );
